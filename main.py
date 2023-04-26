@@ -2,7 +2,6 @@ import os
 import shutil
 import instagram
 #import noticias
-os.add_dll_directory(r'E:\João Vitor\João Vitor\libvlc.dll')
 import vlc
 import playlist
 import github
