@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    height: 100%;
+}
+html {
+    height: 100%;
+}
+
+.displaycontainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.videocontainer {
+    display: flex;
+    overflow: hidden;
+    height: 90%;
+}
+
+.downbar {
+    display: flex;
+    height: 10%;
+    color: white;
+    font-size: 4vw;
+    background-color: green;
+    overflow: hidden;
+}
