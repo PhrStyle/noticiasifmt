@@ -11,16 +11,28 @@
     <div class="displaycontainer">
 
         <div class="videocontainer">
-            <video id="teste" controls autoplay muted>
-              <source src="/static/videos/1SomFliperama.mp4" type="video/mp4">
-            </video>
-<!--            <video controls autoplay muted>-->
-<!--              <source src="/static/videos/1SomFliperama.mp4" type="video/mp4">-->
-<!--            </video>-->
-            <img src="/static/ifmtcuiabaoficial/2023-03-15_18-17-23_UTC.jpg">
-        </div>
+            <div class="display1" id="display1">
+		{%if listagit["tipo"] == "Imagem" %}
+			<img src="/static/github/{{listagit['name']}}">
+		{% else %}
+			<video id="videodisplay1" controls autoplay muted>
+        	             <source src="/static/github/{{listagit['name']}}" type="video/mp4>
+	                </video>
+		{% endif %}
+	    </div>
+            <div class="display2" id="display2">
+		 {%if listainsta["tipo"] == "Imagem" %}
+                        <img src="/static/ifmtcuiabaoficial/{{listainsta['name']}}">
+                {% else %}
+                        <video id="videodisplay2" controls autoplay muted>
+                             <source src="/static/ifmtcuiabaoficial/{{listainsta['name']}}" >
+                        </video>
+                {% endif %}
+
+            </div>
+          </div>
         <div class="downbar">
-            <marquee direction="right">teste</marquee>
+            <marquee direction="left">teste</marquee>
         </div>
     </div>
 
