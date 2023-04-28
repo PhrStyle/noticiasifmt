@@ -1,7 +1,7 @@
 import os
 import shutil
 import instagram
-#import noticias
+import noticias
 import vlc
 import playlist
 import github
@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
     path_instagram = 'static/ifmtcuiabaoficial'
     video_final = 'video_final.mp4'
-    path_git = 'github'
+    path_git = 'static/github'
     path_videos = 'static/videos'
     insta_git_concatenados = 'clipes_concatenados.mp4'
     video_imagens_insta = 'clipe_imagens_insta.mp4'
@@ -95,18 +95,18 @@ if __name__ == '__main__':
     for vid in os.listdir(path_videos):
         videos.append(os.path.join(path_videos, vid))
     
-    video_player = vlc.MediaListPlayer()
-    playlist_videos_player = vlc.Instance()
-    video_list = playlist_videos_player.media_list_new()
-    media_player = vlc.MediaListPlayer()
-    playlist_player = vlc.Instance()
-    i = 0
-    tamanho = len(videos)
+    #video_player = vlc.MediaListPlayer()
+    #playlist_videos_player = vlc.Instance()
+    #video_list = playlist_videos_player.media_list_new()
+    #media_player = vlc.MediaListPlayer()
+    #playlist_player = vlc.Instance()
+    #i = 0
+    #tamanho = len(videos)
 
-    start()
+   # start()
 
     #Loop de reprodução do vídeo e da playlist
-    while True:
-        if doTrashCode:
-            back()
-            doTrashCode = False
+    #while True:
+    #    if doTrashCode:
+    #        back()
+    #        doTrashCode = False

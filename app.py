@@ -1,34 +1,63 @@
 from flask import Flask, render_template
 import os
 import json
+import csv
+import vlc
 
 app = Flask(__name__)
 app.debug = True
 @app.route("/")
 
 def mainpage():
-    listagit = os.listdir("./static/github")
+    listagit = sorted(os.listdir("./static/github"))
     listainsta = os.listdir("./static/ifmtcuiabaoficial")
-    if ".jpeg" in listagit[0] or ".jpg" in listagit[0] or ".png" in listagit[0]:
-        itemgit = '{"name":"' + listagit[0] + '", "tipo":"Imagem"}'
-    else:
-        itemgit = '{"name":"' + listagit[0] + '", "tipo":"Video"}'
-    itemgit = json.loads(itemgit)
+    itemgit = ""
+    i = 0
+    while itemgit == "":
+        i = i + 1
+        if ".jpeg" in listagit[i] or ".jpg" in listagit[i] or ".png" in listagit[i]:
+            itemgit = '{"name":"' + listagit[i] + '", "tipo":"Imagem"}'
+            itemgit = json.loads(itemgit)
+        else:
+            itemgit = '{"name":"' + listagit[i] + '", "tipo":"Video"}'
+            itemgit = json.loads(itemgit)
 
-    if ".jpeg" in listainsta[0] or ".jpg" in listainsta[0] or ".png" in listainsta[0]:
-        iteminsta = '{"name":"' + listainsta[0] + '", "tipo":"Imagem"}'
-    else:
-        iteminsta = '{"name":"' + listainsta[0] + '", "tipo":"Video"}'
-    iteminsta = json.loads(iteminsta)
+    iteminsta = ""
+    i = 0
+    while iteminsta == "":
+        i = i + 1
+        if ".jpeg" in listainsta[i] or ".jpg" in listainsta[i] or ".png" in listainsta[i]:
+            iteminsta = '{"name":"' + listainsta[i] + '", "tipo":"Imagem"}'
+            iteminsta = json.loads(iteminsta)
+        elif ".mp4" in listainsta[i]:
+            iteminsta = '{"name":"' + listainsta[i] + '", "tipo":"Video"}'
+            iteminsta = json.loads(iteminsta)
+
+    arquivo = open('noticias-ifmt.csv')
+
+    linhas = csv.reader(arquivo)
+
+    noticias = []
+    for linha in linhas:
+        noticias.append(linha[0])
+
+    media_player = vlc.MediaListPlayer()
+    playlist_player = vlc.Instance()
+    media_list = playlist_player.media_list_new()
+    media = playlist_player.media_new('playlist.pls')
+    media_list.add_media(media) 
+    media_player.set_media_list(media_list)
+    media_player.play()
     return render_template(
         '/template.html',
 	listagit=itemgit,
 	listainsta=iteminsta,
+        noticias=noticias,
     )
 
 @app.route("/getlistagithub")
 def listagit():
-    listagit = os.listdir("./static/github")
+    listagit = sorted(os.listdir("./static/github"))
     lgit = []
     for l in listagit:
         if ".jpeg" in l or ".jpg" in l or ".png" in l:

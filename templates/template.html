@@ -16,12 +16,12 @@
 			<img src="/static/github/{{listagit['name']}}">
 		{% else %}
 			<video id="videodisplay1" controls autoplay muted>
-        	             <source src="/static/github/{{listagit['name']}}" type="video/mp4>
+        	             <source src="/static/github/{{listagit['name']}}" type="video/mp4">
 	                </video>
 		{% endif %}
 	    </div>
             <div class="display2" id="display2">
-		 {%if listainsta["tipo"] == "Imagem" %}
+                {%if listainsta["tipo"] == "Imagem" %}
                         <img src="/static/ifmtcuiabaoficial/{{listainsta['name']}}">
                 {% else %}
                         <video id="videodisplay2" controls autoplay muted>
@@ -32,7 +32,7 @@
             </div>
           </div>
         <div class="downbar">
-            <marquee direction="left">teste</marquee>
+            <marquee scrollamount="20" direction="left">{% for noticia in noticias%} {{ noticia}} {% endfor %}</marquee>
         </div>
     </div>
 
