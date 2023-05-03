@@ -22,5 +22,9 @@ def correcao_pasta():
                         lix = os.path.join(path, files[j])
                         if os.path.isfile(files[j]) == False:
                             os.remove(lix)
-    #Após a correção, chama a função de criação dos clipes de vídeo
-    clipes.cria_clipes()
+    #Busca todos os arquivos da pasta ifmtcuiabaoficial
+    listainsta = os.listdir("./static/ifmtcuiabaoficial")
+    for l in listainsta:
+        #remove todos os arquivos que nao sao videos/imagens
+        if ".mp4" not in l and ".jpg" not in l and ".jpeg" not in l and ".png" not in l:
+            os.remove("static/ifmtcuiabaoficial/" + l)

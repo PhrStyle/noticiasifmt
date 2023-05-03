@@ -14,6 +14,9 @@ fetch("/getlistainstagram").then(response => {response.json().then(data => {
     })
 })
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function atualizardisplay1(){
     display1len = display1len + 1
@@ -25,13 +28,23 @@ function atualizardisplay1(){
     if (imgorvid.tipo == "Imagem") {
         document.getElementById("display1").innerHTML = '<img src="/static/github/' + imgorvid["name"] + '">'
     }else {
-        document.getElementById("display1").innerHTML = '<video id="videodisplay1" controls autoplay muted><source src="/static/github/' + imgorvid["name"] +'"></video>'
+        if (imgorvid["name"].includes("Reproduzir")) {
+
+            document.getElementById("display1").innerHTML = '<video id="videodisplay1" controls autoplay><source src="/static/github/' + imgorvid["name"] +'"></video>'
+            fetch("/pararradio")
+        }else {
+            document.getElementById("display1").innerHTML = '<video id="videodisplay1" controls autoplay muted><source src="/static/github/' + imgorvid["name"] +'"></video>'
+        }
         clearInterval(timer1);
 	
-	var media = document.getElementById('videodisplay1');
+	var media1 = document.getElementById('videodisplay1');
 
-        media.addEventListener("pause", function() {
-            var timer1 = setInterval(atualizardisplay1, 10000);
+        sleep(1500)
+        media1.play()
+
+        media1.addEventListener("pause", function() {
+            fetch("/iniciarradio")
+            timer1 = setInterval(atualizardisplay1, 10000);
 	    atualizardisplay1()
 	});
 
@@ -51,10 +64,10 @@ function atualizardisplay2(){
         document.getElementById("display2").innerHTML = '<video id="videodisplay2" controls autoplay muted><source src="/static/ifmtcuiabaoficial/' + imgorvid2["name"] +'"></video>'
         clearInterval(timer2);
 
-        var media = document.getElementById('videodisplay2');
+        var media2 = document.getElementById('videodisplay2');
 
-        media.addEventListener("pause", function() {
-            var timer2 = setInterval(atualizardisplay2, 10000);
+        media2.addEventListener("pause", function() {
+            timer2 = setInterval(atualizardisplay2, 10000);
             atualizardisplay2()
         });
 
@@ -62,7 +75,7 @@ function atualizardisplay2(){
 }
 
 
-var timer1 = setInterval(atualizardisplay1, 10000);
+var timer1 = setInterval(atualizardisplay1, 2000);
 
 var timer2 = setInterval(atualizardisplay2, 10000);
 

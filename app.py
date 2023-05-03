@@ -6,32 +6,40 @@ import vlc
 
 app = Flask(__name__)
 app.debug = True
-@app.route("/")
 
+media_player = vlc.MediaListPlayer()
+playlist_player = vlc.Instance()
+media_list = playlist_player.media_list_new()
+media = playlist_player.media_new('playlist.pls')
+media_list.add_media(media)
+media_player.set_media_list(media_list)
+
+
+@app.route("/")
 def mainpage():
     listagit = sorted(os.listdir("./static/github"))
-    listainsta = os.listdir("./static/ifmtcuiabaoficial")
+    listainsta = sorted(os.listdir("./static/ifmtcuiabaoficial"))
     itemgit = ""
     i = 0
     while itemgit == "":
-        i = i + 1
         if ".jpeg" in listagit[i] or ".jpg" in listagit[i] or ".png" in listagit[i]:
             itemgit = '{"name":"' + listagit[i] + '", "tipo":"Imagem"}'
             itemgit = json.loads(itemgit)
-        else:
+        elif ".mp4" in listagit[i]:
             itemgit = '{"name":"' + listagit[i] + '", "tipo":"Video"}'
             itemgit = json.loads(itemgit)
+        i = i + 1
 
     iteminsta = ""
     i = 0
     while iteminsta == "":
-        i = i + 1
         if ".jpeg" in listainsta[i] or ".jpg" in listainsta[i] or ".png" in listainsta[i]:
             iteminsta = '{"name":"' + listainsta[i] + '", "tipo":"Imagem"}'
             iteminsta = json.loads(iteminsta)
         elif ".mp4" in listainsta[i]:
             iteminsta = '{"name":"' + listainsta[i] + '", "tipo":"Video"}'
             iteminsta = json.loads(iteminsta)
+        i = i + 1
 
     arquivo = open('noticias-ifmt.csv')
 
@@ -41,12 +49,6 @@ def mainpage():
     for linha in linhas:
         noticias.append(linha[0])
 
-    media_player = vlc.MediaListPlayer()
-    playlist_player = vlc.Instance()
-    media_list = playlist_player.media_list_new()
-    media = playlist_player.media_new('playlist.pls')
-    media_list.add_media(media) 
-    media_player.set_media_list(media_list)
     media_player.play()
     return render_template(
         '/template.html',
@@ -84,6 +86,16 @@ def listainsta():
             linsta.append(iteminsta)
     lista = {"imgvid": linsta}
     return json.dumps(lista)
+
+@app.route("/pararradio")
+def pararradio():
+    media_player.pause()
+    return ""
+
+@app.route("/iniciarradio")
+def iniciarradio():
+    media_player.play()
+    return ""
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
