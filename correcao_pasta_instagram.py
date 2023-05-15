@@ -1,6 +1,6 @@
 import os
 from os import walk
-import clipes
+#import clipes
 
 #Função responsável por corrigir a falha de download dos arquivos .mp4
 def correcao_pasta():

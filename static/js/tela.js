@@ -74,8 +74,13 @@ function atualizardisplay2(){
     }
 }
 
+function atualizarlista() {
+    fetch("/verificarlistas")
+}
 
-var timer1 = setInterval(atualizardisplay1, 2000);
+var timer1 = setInterval(atualizardisplay1, 10000);
 
 var timer2 = setInterval(atualizardisplay2, 10000);
 
+//var atualizar = setInterval(atualizarlista(), 3600000)
+var atualizar = setInterval(atualizarlista, 5000)

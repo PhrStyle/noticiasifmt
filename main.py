@@ -53,27 +53,14 @@ if __name__ == '__main__':
     os.system('xdotool windowminimize ' + codigo_tela)
 
     path_instagram = 'static/ifmtcuiabaoficial'
-    video_final = 'video_final.mp4'
     path_git = 'static/github'
     path_videos = 'static/videos'
-    insta_git_concatenados = 'clipes_concatenados.mp4'
-    video_imagens_insta = 'clipe_imagens_insta.mp4'
-    video_imagens_git = 'clipe_imagens_git.mp4'
-    video_vinheta = 'video_final_vinheta.mp4'
 
     #Exclui todos os vídeos criados anteriormente para não ocorrer conflitos
     if os.path.exists(video_imagens_insta):  
         os.remove(video_imagens_insta)
     if os.path.exists(video_imagens_git):  
         os.remove(video_imagens_git)
-    if os.path.exists(video_final):  
-        os.remove(video_final)
-    if os.path.exists(insta_git_concatenados):
-        os.remove(insta_git_concatenados)
-    if os.path.exists(path_videos):  
-        shutil.rmtree(path_videos)
-    if os.path.exists(video_vinheta):
-        os.remove(video_vinheta)
     os.mkdir(path_videos)
     
     #Chama a função de download da playlist da rádio

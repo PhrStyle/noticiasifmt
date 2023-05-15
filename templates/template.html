@@ -8,9 +8,9 @@
 </head>
 <body>
 
-    <div class="displaycontainer">
+	<div class="displaycontainer">
 
-        <div class="videocontainer">
+       <div class="videocontainer">
             <div class="display1" id="display1">
 		{%if listagit["tipo"] == "Imagem" %}
 			<img src="/static/github/{{listagit['name']}}">
@@ -31,11 +31,10 @@
 
             </div>
           </div>
-        <div class="downbar">
-            <marquee scrollamount="20" direction="left">{% for noticia in noticias%} {{ noticia}} {% endfor %}</marquee>
-        </div>
-    </div>
-
+		<div class="downbar">
+			<p style="animation: slideX {{noticias|length * 20}}s linear infinite; margin: 1%; width: fit-content;"> {% for noticia in noticias%} {{noticia}} {% endfor %} <p/>
+		</div>
+	</div>
 </body>
 </html>
 
