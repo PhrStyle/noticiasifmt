@@ -5,7 +5,10 @@ import shutil
 
 github.git_refresh()
 
-#instagram.download_instagram()
+try:
+    instagram.download_instagram()
+except:
+    print("Limite de usos da api do instagram excedido.")
 
 os.system("pkill firefox")
 

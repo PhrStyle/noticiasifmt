@@ -7,7 +7,7 @@ import pathlib
 #Função responsável por executar o download das publicações do Instagram Oficial do IFMT
 def download_instagram():
     #Realiza o download das publicações dos últimos 5 dias
-    data_inicio = datetime.today() - timedelta(days=9)
+    data_inicio = datetime.today() - timedelta(days=5)
     L=Instaloader()
     PROFILE = 'ifmtcuiabaoficial'
     profile = Profile.from_username(L.context, PROFILE)
@@ -18,5 +18,3 @@ def download_instagram():
             L.download_post(post, pathlib.Path('static/ifmtcuiabaoficial'))
     #Chama a função de correção da pasta com os arquivos do Instagram
     correcao_pasta_instagram.correcao_pasta()
-
-download_instagram()
