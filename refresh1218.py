@@ -5,11 +5,11 @@ import shutil
 
 github.git_refresh()
 
-#try:
-#    instagram.download_instagram()
-#except:
-#    print("Limite de usos da api do instagram excedido.")
+try:
+    instagram.download_instagram()
+except:
+    print("Limite de usos da api do instagram excedido.")
 
-os.system("pkill firefox")
+os.system("pkill chromium")
 
-os.system("firefox --kiosk localhost:5000")
+os.system("chromium-browser --kiosk 127.0.0.1:5000")
