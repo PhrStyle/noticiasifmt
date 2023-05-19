@@ -19,8 +19,8 @@ listainsta = ""
 
 @app.route("/")
 def mainpage():
-    listagit = sorted(os.listdir("./static/github"))
-    listainsta = sorted(os.listdir("./static/ifmtcuiabaoficial"))
+    listagit = sorted(os.listdir("noticiasifmt/static/github"))
+    listainsta = sorted(os.listdir("noticiasifmt/static/ifmtcuiabaoficial"))
     itemgit = ""
     i = 0
     while itemgit == "":
@@ -43,7 +43,7 @@ def mainpage():
             iteminsta = json.loads(iteminsta)
         i = i + 1
 
-    arquivo = open('noticias-ifmt.csv')
+    arquivo = open('noticiasifmt/noticias-ifmt.csv')
 
     linhas = csv.reader(arquivo)
 
@@ -61,7 +61,7 @@ def mainpage():
 
 @app.route("/getlistagithub")
 def listagit():
-    listagit = sorted(os.listdir("./static/github"))
+    listagit = sorted(os.listdir("noticiasifmt/static/github"))
     lgit = []
     for l in listagit:
         if ".jpeg" in l or ".jpg" in l or ".png" in l:
@@ -76,7 +76,7 @@ def listagit():
 
 @app.route("/getlistainstagram")
 def listainsta():
-    listainsta = os.listdir("./static/ifmtcuiabaoficial")
+    listainsta = os.listdir("noticiasifmt/static/ifmtcuiabaoficial")
     linsta = []
     for l in listainsta:
         if ".jpeg" in l or ".jpg" in l or ".png" in l:
@@ -101,8 +101,8 @@ def iniciarradio():
 
 @app.route("/verificarlistas")
 def verificarlistas():
-    linsta = os.listdir("./static/ifmtcuiabaoficial")
-    lgit = sorted(os.listdir("./static/github"))
+    linsta = os.listdir("noticiasifmt/static/ifmtcuiabaoficial")
+    lgit = sorted(os.listdir("noticiasifmt/static/github"))
     if linsta != listainsta or lgit != listagit:
         print("teste")
         return "teste"

@@ -1,7 +1,7 @@
-import os
 import instagram
 import github
 import shutil
+import os
 
 github.git_refresh()
 
@@ -10,6 +10,5 @@ try:
 except:
     print("Limite de usos da api do instagram excedido.")
 
-os.system("pkill chromium")
-
-os.system("chromium-browser --kiosk 127.0.0.1:5000")
+os.system("xdotool windowactivate $(xdotool search --onlyvisible --class chromium|head -1)")
+os.system("xdotool key ctrl+F5")
