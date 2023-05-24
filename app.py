@@ -10,7 +10,7 @@ app.debug = True
 media_player = vlc.MediaListPlayer()
 playlist_player = vlc.Instance()
 media_list = playlist_player.media_list_new()
-media = playlist_player.media_new('playlist.pls')
+media = playlist_player.media_new('noticiasifmt/playlist.pls')
 media_list.add_media(media)
 media_player.set_media_list(media_list)
 
@@ -34,6 +34,7 @@ def mainpage():
 
     iteminsta = ""
     i = 0
+    print(listainsta)
     while iteminsta == "":
         if ".jpeg" in listainsta[i] or ".jpg" in listainsta[i] or ".png" in listainsta[i]:
             iteminsta = '{"name":"' + listainsta[i] + '", "tipo":"Imagem"}'
@@ -97,18 +98,6 @@ def pararradio():
 @app.route("/iniciarradio")
 def iniciarradio():
     media_player.play()
-    return ""
-
-@app.route("/verificarlistas")
-def verificarlistas():
-    linsta = os.listdir("noticiasifmt/static/ifmtcuiabaoficial")
-    lgit = sorted(os.listdir("noticiasifmt/static/github"))
-    if linsta != listainsta or lgit != listagit:
-        print("teste")
-        return "teste"
-    else:
-        print("nao")
-        return "nao"
     return ""
 
 if __name__ == "__main__":
