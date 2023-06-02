@@ -9,6 +9,7 @@ def download_instagram():
     #Realiza o download das publicações dos últimos 5 dias
     data_inicio = datetime.today() - timedelta(days=5)
     L=Instaloader()
+    L.login("testeifmt", "teste123")
     PROFILE = 'ifmtcuiabaoficial'
     profile = Profile.from_username(L.context, PROFILE)
     post_sorted = sorted(profile.get_posts(),key=lambda post: post.likes, reverse=True)
@@ -18,3 +19,5 @@ def download_instagram():
             L.download_post(post, pathlib.Path('noticiasifmt/static/ifmtcuiabaoficial'))
     #Chama a função de correção da pasta com os arquivos do Instagram
     correcao_pasta_instagram.correcao_pasta()
+
+download_instagram()
