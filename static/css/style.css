@@ -59,3 +59,7 @@ html {
     background-color: green;
     white-space: nowrap;
 }
+
+video {
+	width:100%
+}

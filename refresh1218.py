@@ -5,12 +5,12 @@ import os
 
 github.git_refresh()
 
-#try:
-#    instagram.download_instagram()
-#except:
-#    print("Limite de usos da api do instagram excedido.")
-
-instagram.download_instagram()
+try:
+    instagram.download_instagram()
+except:
+    print("Limite de usos da api excedido")
 
 os.system("xdotool windowactivate $(xdotool search --onlyvisible --class chromium|head -1)")
 os.system("xdotool key ctrl+F5")
+
+
