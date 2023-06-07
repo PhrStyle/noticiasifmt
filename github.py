@@ -5,7 +5,7 @@ import shutil
 
 #Função responsável por clonar o repositório remoto do GitHub
 def git_clone():
-    path = 'static/github'
+    path = '/noticiasifmt/static/github'
     Repo.clone_from('https://github.com/nairamouras/instaview-dep', path)
 
 def git_refresh():

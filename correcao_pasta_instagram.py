@@ -5,7 +5,7 @@ from os import walk
 #Função responsável por corrigir a falha de download dos arquivos .mp4
 def correcao_pasta():
     files = []
-    path = 'noticiasifmt/static/ifmtcuiabaoficial'
+    path = '/noticiasifmt/static/ifmtcuiabaoficial'
     for (dirpath, dirnames, filenames) in walk(path):
         files.extend(filenames)
         break
@@ -23,8 +23,8 @@ def correcao_pasta():
                         if os.path.isfile(files[j]) == False:
                             os.remove(lix)
     #Busca todos os arquivos da pasta ifmtcuiabaoficial
-    listainsta = os.listdir("noticiasifmt/static/ifmtcuiabaoficial")
+    listainsta = os.listdir("/noticiasifmt/static/ifmtcuiabaoficial")
     for l in listainsta:
         #remove todos os arquivos que nao sao videos/imagens
         if ".mp4" not in l and ".jpg" not in l and ".jpeg" not in l and ".png" not in l:
-            os.remove("noticiasifmt/static/ifmtcuiabaoficial/" + l)
+            os.remove("/noticiasifmt/static/ifmtcuiabaoficial/" + l)
