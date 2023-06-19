@@ -3,12 +3,12 @@ import instagram
 import github
 import shutil
 
-dirgit = "/noticiasifmt/static/github"
+dirgit = "static/github"
 for f in os.listdir(dirgit):
     os.remove(os.path.join(dirgit, f))
 github.git_refresh()
 
-dirinsta = "/noticiasifmt/static/ifmtcuiabaoficial"
+dirinsta = "static/ifmtcuiabaoficial"
 for f in os.listdir(dirinsta):
     os.remove(os.path.join(dirinsta, f))
 try:

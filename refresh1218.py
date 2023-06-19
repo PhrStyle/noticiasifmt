@@ -11,6 +11,4 @@ except:
     print("Limite de usos da api excedido")
 
 os.system("xdotool windowactivate $(xdotool search --onlyvisible --class chromium|head -1)")
-os.system("xdotool key ctrl+F5")
-
-
+os.system("xdotool key CTRL+F5")

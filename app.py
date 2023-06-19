@@ -10,7 +10,7 @@ app.debug = True
 media_player = vlc.MediaListPlayer()
 playlist_player = vlc.Instance()
 media_list = playlist_player.media_list_new()
-media = playlist_player.media_new('/noticiasifmt/playlist.pls')
+media = playlist_player.media_new('playlist.pls')
 media_list.add_media(media)
 media_player.set_media_list(media_list)
 
@@ -19,8 +19,8 @@ listainsta = ""
 
 @app.route("/")
 def mainpage():
-    listagit = sorted(os.listdir("/noticiasifmt/static/github"))
-    listainsta = sorted(os.listdir("/noticiasifmt/static/ifmtcuiabaoficial"))
+    listagit = sorted(os.listdir("static/github"))
+    listainsta = sorted(os.listdir("static/ifmtcuiabaoficial"))
     itemgit = ""
     i = 0
     while itemgit == "":
@@ -44,7 +44,7 @@ def mainpage():
             iteminsta = json.loads(iteminsta)
         i = i + 1
 
-    arquivo = open('/noticiasifmt/noticias-ifmt.csv')
+    arquivo = open('noticias-ifmt.csv')
 
     linhas = csv.reader(arquivo)
 
@@ -62,7 +62,7 @@ def mainpage():
 
 @app.route("/getlistagithub")
 def listagit():
-    listagit = sorted(os.listdir("/noticiasifmt/static/github"))
+    listagit = sorted(os.listdir("static/github"))
     lgit = []
     for l in listagit:
         if ".jpeg" in l or ".jpg" in l or ".png" in l:
@@ -77,7 +77,7 @@ def listagit():
 
 @app.route("/getlistainstagram")
 def listainsta():
-    listainsta = os.listdir("/noticiasifmt/static/ifmtcuiabaoficial")
+    listainsta = os.listdir("static/ifmtcuiabaoficial")
     linsta = []
     for l in listainsta:
         if ".jpeg" in l or ".jpg" in l or ".png" in l:

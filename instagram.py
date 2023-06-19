@@ -16,7 +16,7 @@ def download_instagram():
     for post in post_sorted:
         #Faz o download das publicações que estão dentro do prazo estabelecido e as que estão fixadas
         if post.date >= data_inicio or post.is_pinned:
-            L.download_post(post, pathlib.Path('/noticiasifmt/static/ifmtcuiabaoficial'))
+            L.download_post(post, pathlib.Path('static/ifmtcuiabaoficial'))
     #Chama a função de correção da pasta com os arquivos do Instagram
     correcao_pasta_instagram.correcao_pasta()
 
