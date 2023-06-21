@@ -2,6 +2,9 @@ import os
 import instagram
 import github
 import shutil
+import noticias
+
+noticias.scraping_noticias()
 
 dirgit = "static/github"
 for f in os.listdir(dirgit):

@@ -2,6 +2,9 @@ import instagram
 import github
 import shutil
 import os
+import noticias
+
+noticias.scraping_noticias()
 
 github.git_refresh()
 

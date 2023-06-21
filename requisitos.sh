@@ -5,3 +5,5 @@ pip install flask
 pip install python-vlc
 pip install instaloader
 pip install git-python
+pip install bs4
+pip install pandas
