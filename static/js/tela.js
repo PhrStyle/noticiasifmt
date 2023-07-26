@@ -39,7 +39,7 @@ function atualizardisplay1(){
 	
 	var media1 = document.getElementById('videodisplay1');
 
-        sleep(1500)
+        sleep(4000)
         media1.play()
 
         media1.addEventListener("pause", function() {
