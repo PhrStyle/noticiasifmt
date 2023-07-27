@@ -39,9 +39,8 @@ function atualizardisplay1(){
 	
 	var media1 = document.getElementById('videodisplay1');
 
-        sleep(4000)
+        sleep(5500)
         media1.play()
-
         media1.addEventListener("pause", function() {
             fetch("/iniciarradio")
             timer1 = setInterval(atualizardisplay1, 10000);
