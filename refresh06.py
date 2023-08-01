@@ -18,5 +18,6 @@ try:
     instagram.download_instagram()
 except:
     print("Limite de usos da api do instagram excedido.")
+instagram.download_instagram()
 os.system("xdotool windowactivate $(xdotool search --onlyvisible --class chromium|head -2)")
 os.system("xdotool key ctrl+F5")

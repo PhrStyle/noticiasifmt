@@ -30,9 +30,8 @@ function atualizardisplay1(){
     }else {
         if (imgorvid["name"].includes("Reproduzir")) {
 
-            document.getElementById("display1").innerHTML = '<video id="videodisplay1" controls autoplay muted><source src="/static/github/' + imgorvid["name"] +'"></video>'
+            document.getElementById("display1").innerHTML = '<video id="videodisplay1" controls autoplay><source src="/static/github/' + imgorvid["name"] +'"></video>'
             fetch("/pararradio")
-		delay(1000).then(() => toggleMute());
         }else {
             document.getElementById("display1").innerHTML = '<video id="videodisplay1" controls autoplay muted><source src="/static/github/' + imgorvid["name"] +'"></video>'
         }
@@ -72,18 +71,6 @@ function atualizardisplay2(){
     }
 }
 
-function toggleMute() {
-    var video = document.getElementById('videodisplay1');
-    if (video.muted) {
-        video.muted = false;
-    } else {
-        video.muted = true;
-    }
-}
-
-function delay(time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
-}
 
 var timer1 = setInterval(atualizardisplay1, 10000);
 
