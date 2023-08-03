@@ -41,7 +41,7 @@ function atualizardisplay1(){
 
         media1.addEventListener("pause", function() {
             fetch("/iniciarradio")
-            timer1 = setInterval(atualizardisplay1, 10000);
+            timer1 = setInterval(atualizardisplay1, 20000);
 	    atualizardisplay1()
 	});
 
@@ -64,7 +64,7 @@ function atualizardisplay2(){
         var media2 = document.getElementById('videodisplay2');
 
         media2.addEventListener("pause", function() {
-            timer2 = setInterval(atualizardisplay2, 10000);
+            timer2 = setInterval(atualizardisplay2, 20000);
             atualizardisplay2()
         });
 
@@ -72,7 +72,7 @@ function atualizardisplay2(){
 }
 
 
-var timer1 = setInterval(atualizardisplay1, 10000);
+var timer1 = setInterval(atualizardisplay1, 20000);
 
-var timer2 = setInterval(atualizardisplay2, 10000);
+var timer2 = setInterval(atualizardisplay2, 20000);
 
