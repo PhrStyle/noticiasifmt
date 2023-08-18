@@ -9,7 +9,7 @@ def download_instagram():
     #Realiza o download das publicações dos últimos 5 dias
     data_inicio = datetime.today() - timedelta(days=6)
     L=Instaloader()
-    PROFILE = 'ifmtcuiabaoficial'
+    PROFILE = 'ifmtcuiabaoctayde'
     profile = Profile.from_username(L.context, PROFILE)
     post_sorted = sorted(profile.get_posts(),key=lambda post: post.likes, reverse=True)
     for post in post_sorted:
