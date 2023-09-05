@@ -6,12 +6,12 @@ import shutil
 #Função responsável por clonar o repositório remoto do GitHub
 def git_clone():
     path = 'static/github'
-    Repo.clone_from('https://github.com/nairamouras/instaview-dep', path)
+    Repo.clone_from('https://github.com/PhrStyle/noticiasarquivos', path)
 
 def git_refresh():
     if os.path.exists('github/'):
         shutil.rmtree('github/')
-    Repo.clone_from('https://github.com/nairamouras/instaview-dep', 'github/')
+    Repo.clone_from('https://github.com/PhrStyle/noticiasarquivos', 'github/')
     os.system('mv github/* static/github/')
 
 #Função responsável por excluir o repositório clonado
